@@ -13,16 +13,16 @@ up resources.
 
 You will create:
 
-  Setting                 Example
-  ----------------------- -------------------------------------------------------
-  Resource group          `RG-Ubuntu-Lab`
-  Virtual machine         `Ubuntu-VM`
-  Operating system        Ubuntu Server 24.04 LTS
-  Region                  A region near you, such as Central India if available
-  Authentication          SSH public key
-  Network                 New virtual network and subnet
-  SSH                     TCP port 22, restricted to your public IP
-  Web server (optional)   NGINX on TCP port 80
+| Setting | Example |
+|---|---|
+| Resource group | `RG-Ubuntu-Lab` |
+| Virtual machine | `Ubuntu-VM` |
+| Operating system | Ubuntu Server 24.04 LTS |
+| Region | A region near you, such as Central India if available |
+| Authentication | SSH public key |
+| Network | New virtual network and subnet |
+| SSH | TCP port 22, restricted to your public IP |
+| Web server (optional) | NGINX on TCP port 80 |
 
 Names and options may vary slightly in the Azure Portal. VM sizes, image
 versions, availability, and pricing depend on your subscription and
@@ -51,38 +51,22 @@ region.
 
 Use the following example values:
 
-  -----------------------------------------------------------------------
-  Field                               Example value
-  ----------------------------------- -----------------------------------
-  Subscription                        Select your subscription
+## Azure Ubuntu VM Configuration
 
-  Resource group                      Select **Create new**, enter
-                                      `RG-Ubuntu-Lab`
-
-  Virtual machine name                `Ubuntu-VM`
-
-  Region                              Choose a region near you,
-                                      e.g. Central India if available
-
-  Availability options                No infrastructure redundancy
-                                      required for this practice lab
-
-  Security type                       Keep a supported default, such as
-                                      Trusted launch, if available
-
-  Image                               Ubuntu Server 24.04 LTS
-
-  VM architecture                     x64, if asked
-
-  Size                                Choose a small, low-cost size
-                                      available in your region
-
-  Authentication type                 SSH public key
-
-  Username                            `azureuser`
-
-  SSH public key source               Generate new key pair, if this is
-                                      your first lab key
+| Field | Example value |
+|---|---|
+| Subscription | Select your subscription |
+| Resource group | Select **Create new**, enter `RG-Ubuntu-Lab` |
+| Virtual machine name | `Ubuntu-VM` |
+| Region | Choose a region near you, e.g. Central India if available |
+| Availability options | No infrastructure redundancy required for this practice lab |
+| Security type | Keep a supported default, such as Trusted launch, if available |
+| Image | Ubuntu Server 24.04 LTS |
+| VM architecture | x64, if asked |
+| Size | Choose a small, low-cost size available in your region |
+| Authentication type | SSH public key |
+| Username | `azureuser` |
+| SSH public key source | Generate new key pair, if this is your first lab key |
   -----------------------------------------------------------------------
 
 For the SSH key pair name, use something recognizable, such as
@@ -269,14 +253,16 @@ when you no longer need public web access.
 
 In the Azure Portal, open the VM's **Overview** page.
 
-  Action              What it does
-  ------------------- ------------------------------------------------
-  Start               Starts a stopped VM
-  Restart             Reboots the VM
-  Stop                Stops the VM; check whether it is deallocated
-  Stop (deallocate)   Releases compute allocation
-  Resize              Changes the VM's size, subject to availability
-  Delete              Deletes the VM resource
+  ## Azure VM Management Actions
+
+| Action | What it does |
+|---|---|
+| Start | Starts a stopped VM |
+| Restart | Reboots the VM |
+| Stop | Stops the VM; check whether it is deallocated |
+| Stop (deallocate) | Releases compute allocation |
+| Resize | Changes the VM's size, subject to availability |
+| Delete | Deletes the VM resource |
 
 **Billing note:** Shutting down Ubuntu from inside the operating system
 is not necessarily the same as deallocating the VM in Azure. For a lab
