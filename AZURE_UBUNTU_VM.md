@@ -56,8 +56,8 @@ Use the following example values:
 | Field | Example value |
 |---|---|
 | Subscription | Select your subscription |
-| Resource group | Select **Create new**, enter `RG-Ubuntu-Lab` |
-| Virtual machine name | `Ubuntu-VM` |
+| Resource group | Select **Create new**, enter RG-Ubuntu-Lab |
+| Virtual machine name | Ubuntu-VM |
 | Region | Choose a region near you, e.g. Central India if available |
 | Availability options | No infrastructure redundancy required for this practice lab |
 | Security type | Keep a supported default, such as Trusted launch, if available |
@@ -65,7 +65,7 @@ Use the following example values:
 | VM architecture | x64, if asked |
 | Size | Choose a small, low-cost size available in your region |
 | Authentication type | SSH public key |
-| Username | `azureuser` |
+| Username | azureuser |
 | SSH public key source | Generate new key pair, if this is your first lab key |
   -----------------------------------------------------------------------
 
