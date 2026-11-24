@@ -55,19 +55,14 @@ resources it consumes.
 
 ### Scalability vs. elasticity
 
-  -----------------------------------------------------------------------
-  Term                    Meaning                 Example
-  ----------------------- ----------------------- -----------------------
-  Scalability             Ability to handle       Increase a VM's size or
-                          increased or decreased  add more VM instances
-                          workload by adding or   
-                          removing capacity       
 
-  Elasticity              Ability to adjust       Automatically add
-                          capacity dynamically as instances during a
-                          demand changes          traffic spike and
-                                                  remove them later
-  -----------------------------------------------------------------------
+### Scalability vs. Elasticity
+
+| Term | Meaning | Example |
+|---|---|---|
+| **Scalability** | The ability to handle increased or decreased workloads by adding or removing resources. | Increasing a VM's size (CPU/RAM) or adding more VM instances to handle increased traffic. |
+| **Elasticity** | The ability to automatically adjust resources dynamically based on workload demand. | Automatically adding VM instances during a traffic spike and removing them when traffic decreases. |
+
 
 ### High availability vs. disaster recovery
 
