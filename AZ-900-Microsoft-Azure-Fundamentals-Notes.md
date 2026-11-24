@@ -191,13 +191,12 @@ Serverless lets developers run code or services without managing the
 underlying servers. Servers still exist; the cloud provider manages
 them.
 
-**Azure examples:** - **Azure Functions:** Run event-driven code. -
-**Azure Logic Apps:** Build workflows and integrate services. - **Azure
-Container Apps:** Run containerized applications with managed
-infrastructure and scaling capabilities.
+**Examples:** 
+- **Azure Functions:** Run event-driven code.
+- **Azure Logic Apps:** Build workflows and integrate services.
+- **Azure Container Apps:** Run containerized applications with managed infrastructure and scaling capabilities.
 
-Serverless services often use consumption-based or workload-based
-pricing, depending on the service and plan.
+Serverless services often use consumption-based or workload-based pricing, depending on the service and plan.
 
 ------------------------------------------------------------------------
 
@@ -290,13 +289,75 @@ workloads, and code.
 
 An Azure VM is an on-demand virtual server.
 
-Common use cases: - Hosting Windows or Linux applications - Running
-custom software - Migrating existing server workloads - Applications
-requiring OS-level control
+Common use cases: 
+- Hosting Windows or Linux applications
+- Running custom software
+- Migrating existing server workloads
+- Applications requiring OS-level control
 
-A VM commonly needs: - VM size (CPU and memory) - Operating system
-image - Disk(s) - Virtual network and subnet - Network interface -
-Authentication and security configuration
+A VM commonly needs: 
+- VM size (CPU and memory)
+- Operating system image - Disk(s)
+- Virtual network and subnet
+- Network interface
+- Authentication and security configuration
+
+
+### Types of Azure Virtual Machines
+
+Azure provides different types of Virtual Machines based on workload requirements, such as general-purpose applications, compute-intensive workloads, memory-intensive applications, and GPU-based processing.
+
+| VM Type | Description | Common Use Cases |
+|---|---|---|
+| **General Purpose** | Provides a balanced ratio of CPU, memory, and networking resources. | Web servers, development environments, small databases, and application servers. |
+| **Compute Optimized** | Provides a high CPU-to-memory ratio. | Batch processing, application servers, and compute-intensive workloads. |
+| **Memory Optimized** | Provides a high memory-to-CPU ratio. | Large databases, in-memory analytics, and memory-intensive applications. |
+| **Storage Optimized** | Provides high disk throughput and I/O performance. | Big data processing, data warehousing, and heavy transactional workloads. |
+| **GPU Optimized** | Provides GPU capabilities for parallel processing. | AI/ML workloads, deep learning, graphics rendering, and video processing. |
+| **HPC Optimized** | Designed for high-performance computing with powerful CPUs and high-speed networking. | Scientific simulations, engineering workloads, and complex computational tasks. |
+
+### Azure VM Size Families
+
+Azure uses VM size families to identify the hardware configuration and intended workload.
+
+| VM Series | Category | Description |
+|---|---|---|
+| **A-series** | General Purpose | Entry-level VMs for development, testing, and small workloads. |
+| **B-series** | General Purpose (Burstable) | Suitable for workloads with variable CPU usage that can burst when needed. |
+| **D-series** | General Purpose | Balanced CPU and memory for enterprise applications and web servers. |
+| **F-series** | Compute Optimized | High CPU-to-memory ratio for compute-intensive applications. |
+| **E-series** | Memory Optimized | High memory-to-CPU ratio for memory-intensive workloads. |
+| **L-series** | Storage Optimized | High disk throughput and I/O performance. |
+| **N-series** | GPU Optimized | VMs equipped with GPUs for AI, machine learning, and graphics workloads. |
+| **H-series** | HPC Optimized | Designed for high-performance computing workloads. |
+
+### Common Azure VM Components
+
+A VM commonly requires:
+
+- **VM Size:** Defines the number of vCPUs, memory, and other performance characteristics.
+- **Operating System Image:** Windows Server or Linux operating system.
+- **OS Disk:** Stores the operating system.
+- **Data Disks:** Additional disks used to store application data.
+- **Virtual Network (VNet):** Provides network connectivity.
+- **Subnet:** A logical subdivision of a virtual network.
+- **Network Interface (NIC):** Connects the VM to a virtual network.
+- **Public IP Address (Optional):** Allows connectivity from the internet when configured.
+- **Network Security Group (NSG):** Controls inbound and outbound network traffic.
+- **Authentication:** Uses SSH keys, passwords, or supported identity-based methods.
+
+### Important VM Concepts for AZ-900
+
+| Concept | Description |
+|---|---|
+| **vCPU** | Virtual CPU allocated to a VM. |
+| **VM Size** | Determines CPU, memory, storage capabilities, and network performance. |
+| **OS Disk** | Disk that contains the operating system. |
+| **Data Disk** | Additional disk for application or user data. |
+| **Temporary Disk** | Local storage intended for temporary data; data may be lost during certain maintenance or redeployment events. |
+| **Managed Disks** | Azure-managed block storage used by virtual machines. |
+| **VM Image** | Template containing an operating system and optionally preconfigured software. |
+
 
 ### VM Scale Sets
 
@@ -330,13 +391,11 @@ access to Windows desktops and applications hosted on Azure.
 Containers package an application and its dependencies so it can run
 consistently across environments.
 
-Azure container services include: - **Azure Container Instances (ACI):**
-Run containers without managing VMs or a container orchestrator. -
-**Azure Kubernetes Service (AKS):** Managed Kubernetes for orchestrating
-containerized applications. - **Azure Container Apps:** Managed platform
-for containerized applications, with built-in scaling and application
-capabilities. - **Azure Container Registry (ACR):** Store and manage
-container images.
+Azure container services include: 
+- **Azure Container Instances (ACI):** Run containers without managing VMs or a container orchestrator.
+- **Azure Kubernetes Service (AKS):** Managed Kubernetes for orchestrating containerized applications.
+- **Azure Container Apps:** Managed platform for containerized applications, with built-in scaling and application capabilities.
+- **Azure Container Registry (ACR):** Store and manage container images.
 
 ### Azure Functions
 
@@ -407,9 +466,10 @@ name resolution within virtual networks.
 Connects Azure virtual networks to other networks through encrypted
 tunnels over the internet.
 
-Common scenarios: - Site-to-site VPN: Connect an on-premises network to
-Azure. - Point-to-site VPN: Connect an individual client device to
-Azure. - VNet-to-VNet VPN: Connect VNets using VPN gateways.
+Common scenarios: 
+- Site-to-site VPN: Connect an on-premises network to Azure.
+- Point-to-site VPN: Connect an individual client device to Azure.
+- VNet-to-VNet VPN: Connect VNets using VPN gateways.
 
 ### ExpressRoute
 
