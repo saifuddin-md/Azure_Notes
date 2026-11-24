@@ -11,11 +11,15 @@ architecture and services, and Azure management and governance. It is a
 fundamentals-level certification; prior Azure experience is not
 required.
 
-  Skill area                                   Exam weight
-  ------------------------------------------ -------------
-  Describe cloud concepts                          25--30%
-  Describe Azure architecture and services         35--40%
-  Describe Azure management and governance         30--35%
+
+## AZ-900 Exam Structure
+
+| Skill Area | Exam Weight |
+|---|---:|
+| Describe Cloud Concepts | 25–30% |
+| Describe Azure Architecture and Services | 35–40% |
+| Describe Azure Management and Governance | 30–35% |
+
 
 Microsoft currently lists a 45-minute exam duration and a passing score
 of 700 or higher. Check the exam page for current delivery details,
@@ -55,9 +59,6 @@ resources it consumes.
 
 ### Scalability vs. elasticity
 
-
-### Scalability vs. Elasticity
-
 | Term | Meaning | Example |
 |---|---|---|
 | **Scalability** | The ability to handle increased or decreased workloads by adding or removing resources. | Increasing a VM's size (CPU/RAM) or adding more VM instances to handle increased traffic. |
@@ -71,10 +72,8 @@ resources it consumes.
 -   **Disaster recovery (DR):** Restore services and data after a major
     failure or disaster, often using backups or replicated resources.
 
-### Fault tolerance
-
-Fault tolerance is the ability of a system to continue operating even
-when a component fails. It generally requires redundancy and careful
+### Fault tolerance 
+- **Fault tolerance:** Fault tolerance is the ability of a system to continue operating even when a component fails. It generally requires redundancy and careful
 architecture.
 
 ## 1.2 Cloud expenditure models
@@ -102,7 +101,7 @@ significant CapEx. Cloud services commonly shift spending toward OpEx.
 You pay for the cloud resources you use rather than purchasing all
 infrastructure in advance.
 
-Examples: - Pay for VM compute while it is allocated or running,
+**Examples:** - Pay for VM compute while it is allocated or running,
 according to the service's billing rules. - Pay for storage based on
 capacity and operations. - Pay for certain serverless functions based on
 executions and resource consumption.
@@ -112,25 +111,12 @@ identical across all Azure services.
 
 ## 1.4 Cloud deployment models
 
-  -----------------------------------------------------------------------
-  Model                   Description             Example use case
-  ----------------------- ----------------------- -----------------------
-  Public cloud            Cloud services          Host a public website
-                          delivered over the      in Azure
-                          provider's              
-                          infrastructure and      
-                          shared platform         
+| Model | Description | Example Use Case |
+|---|---|---|
+| **Public Cloud** | Cloud services delivered over the provider's infrastructure and shared platform. | Hosting a public website in Microsoft Azure. |
+| **Private Cloud** | A cloud environment dedicated to a single organization. | An organization requires dedicated control or needs to meet specific security and compliance requirements. |
+| **Hybrid Cloud** | A combination of private/on-premises infrastructure and public cloud services. | Keeping a legacy database on-premises while hosting an application in Azure. |
 
-  Private cloud           Cloud environment       Organization needs
-                          dedicated to one        dedicated control or
-                          organization            must meet specific
-                                                  requirements
-
-  Hybrid cloud            Combination of          Keep a legacy database
-                          private/on-premises     on-premises while
-                          infrastructure and      hosting an application
-                          public cloud            in Azure
-  -----------------------------------------------------------------------
 
 **Exam tip:** Hybrid cloud connects environments. It does not simply
 mean using two public-cloud providers.
@@ -140,29 +126,15 @@ mean using two public-cloud providers.
 Security and operational responsibilities are divided between the cloud
 provider and the customer. The division depends on the service model.
 
-  ----------------------------------------------------------------------------
-  Responsibility   On-premises    IaaS           PaaS           SaaS
-  ---------------- -------------- -------------- -------------- --------------
-  Physical data    Customer       Microsoft      Microsoft      Microsoft
-  center                                                        
+| Responsibility | On-Premises | IaaS | PaaS | SaaS |
+|---|---|---|---|---|
+| Physical Data Center | Customer | Microsoft | Microsoft | Microsoft |
+| Physical Network | Customer | Microsoft | Microsoft | Microsoft |
+| Physical Hosts | Customer | Microsoft | Microsoft | Microsoft |
+| Operating System | Customer | Customer | Microsoft | Microsoft |
+| Applications | Customer | Customer | Customer | Microsoft manages the application; customer manages its usage and configuration. |
+| Data and Identities | Customer | Customer | Customer | Customer |
 
-  Physical network Customer       Microsoft      Microsoft      Microsoft
-
-  Physical hosts   Customer       Microsoft      Microsoft      Microsoft
-
-  Operating system Customer       Customer       Microsoft      Microsoft
-
-  Applications     Customer       Customer       Customer       Microsoft
-                                                                manages the
-                                                                application
-                                                                platform;
-                                                                customer
-                                                                manages use
-                                                                and data
-
-  Data and         Customer       Customer       Customer       Customer
-  identities                                                    
-  ----------------------------------------------------------------------------
 
 The table is a learning guide; exact responsibilities vary by service
 and configuration. Customers remain responsible for protecting their
@@ -206,18 +178,12 @@ application infrastructure.
 
 ### IaaS vs. PaaS vs. SaaS
 
-  -----------------------------------------------------------------------
-  Model                   Customer mainly manages Provider mainly manages
-  ----------------------- ----------------------- -----------------------
-  IaaS                    OS, applications, data, Physical infrastructure
-                          configuration           and virtualization
+| Model | Customer Mainly Manages | Provider Mainly Manages |
+|---|---|---|
+| **IaaS** | Operating system, applications, data, and configuration. | Physical infrastructure and virtualization. |
+| **PaaS** | Applications, data, and application configuration. | Infrastructure, operating system, runtime, and platform. |
+| **SaaS** | Data, users, access, and application configuration. | Application and underlying infrastructure/platform. |
 
-  PaaS                    Applications, data,     Infrastructure, OS,
-                          configuration           runtime/platform
-
-  SaaS                    Data, users, access,    Application and
-                          configuration           underlying platform
-  -----------------------------------------------------------------------
 
 ## 1.7 Serverless computing
 
@@ -380,29 +346,17 @@ storage events.
 
 ### Compute comparison
 
-  -----------------------------------------------------------------------
-  Service                             Best understood as
-  ----------------------------------- -----------------------------------
-  Virtual Machines                    Full virtual servers with OS-level
-                                      control
+| Service | Best Understood As |
+|---|---|
+| **Azure Virtual Machines (VMs)** | Full virtual servers with OS-level control. |
+| **VM Scale Sets** | Groups of VMs that can automatically scale based on demand. |
+| **Azure Kubernetes Service (AKS)** | Managed Kubernetes service for container orchestration. |
+| **Azure Container Instances (ACI)** | Run individual container workloads without managing an orchestrator. |
+| **Azure Container Apps** | Managed application platform for running containerized applications. |
+| **Azure App Service** | Managed hosting service for web applications and APIs. |
+| **Azure Functions** | Serverless compute service for running event-driven code. |
+| **Azure Virtual Desktop (AVD)** | Cloud-based virtual desktops and applications. |
 
-  VM Scale Sets                       Groups of VMs that can scale
-
-  AKS                                 Managed Kubernetes orchestration
-
-  Container Instances                 Run individual container workloads
-                                      without managing an orchestrator
-
-  Container Apps                      Managed application platform for
-                                      containers
-
-  App Service                         Managed hosting for web apps and
-                                      APIs
-
-  Azure Functions                     Event-driven serverless code
-
-  Azure Virtual Desktop               Hosted desktops and applications
-  -----------------------------------------------------------------------
 
 ## 2.4 Application hosting options
 
@@ -488,25 +442,14 @@ provides a namespace for supported storage services.
 
 ### Main storage services
 
-  -----------------------------------------------------------------------
-  Service                             What it stores / use case
-  ----------------------------------- -----------------------------------
-  Blob Storage                        Unstructured data such as images,
-                                      videos, backups, and log files
+| Service | What It Stores / Use Case |
+|---|---|
+| **Azure Blob Storage** | Stores unstructured data such as images, videos, backups, and log files. |
+| **Azure Files** | Provides managed file shares accessible using protocols such as SMB. |
+| **Azure Queue Storage** | Stores messages for asynchronous communication between application components. |
+| **Azure Table Storage** | Provides a NoSQL key/attribute store for structured, non-relational data. |
+| **Azure Managed Disks** | Provides block storage for Azure Virtual Machines. |
 
-  Azure Files                         Managed file shares accessible
-                                      using protocols such as SMB
-
-  Queue Storage                       Messages for asynchronous
-                                      communication between application
-                                      components
-
-  Table Storage                       NoSQL key/attribute store for
-                                      structured, non-relational data
-
-  Managed Disks                       Block storage for Azure Virtual
-                                      Machines
-  -----------------------------------------------------------------------
 
 ### Blob access tiers
 
@@ -526,31 +469,15 @@ on the tier and account configuration.
 Redundancy protects data against hardware, datacenter, or regional
 failures.
 
-  -----------------------------------------------------------------------
-  Option                              Meaning
-  ----------------------------------- -----------------------------------
-  LRS                                 Locally redundant storage; copies
-                                      data within one datacenter in the
-                                      primary region
+| Option | Meaning |
+|---|---|
+| **LRS (Locally Redundant Storage)** | Copies data within a single datacenter in the primary region. |
+| **ZRS (Zone-Redundant Storage)** | Synchronously replicates data across multiple availability zones in the primary region. |
+| **GRS (Geo-Redundant Storage)** | Replicates data to a secondary region for regional disaster recovery. |
+| **GZRS (Geo-Zone-Redundant Storage)** | Replicates data across availability zones in the primary region and to a secondary region. |
+| **RA-GRS (Read-Access Geo-Redundant Storage)** | Provides read access to the secondary region in addition to GRS replication. |
+| **RA-GZRS (Read-Access Geo-Zone-Redundant Storage)** | Provides read access to the secondary region in addition to GZRS replication. |
 
-  ZRS                                 Zone-redundant storage;
-                                      synchronously replicates data
-                                      across availability zones in the
-                                      primary region
-
-  GRS                                 Geo-redundant storage; replicates
-                                      data to a secondary region
-
-  GZRS                                Zone-redundant in the primary
-                                      region plus geo-replication to a
-                                      secondary region
-
-  RA-GRS                              GRS with read access to the
-                                      secondary region
-
-  RA-GZRS                             GZRS with read access to the
-                                      secondary region
-  -----------------------------------------------------------------------
 
 **Exam tip:** LRS protects against some local hardware failures, but not
 a complete regional outage. Geo-redundancy is designed to protect
@@ -707,14 +634,16 @@ recommendations - Cost exports and reporting
 Tags are key-value pairs applied to resources to help organize and
 report on them.
 
-Example:
 
-  Tag           Value
-  ------------- --------------
-  Environment   Production
-  Department    Finance
-  Owner         PlatformTeam
-  Application   OnlineStore
+**Example:** Azure Resource Tags
+
+| Tag | Value |
+|---|---|
+| **Environment** | Production |
+| **Department** | Finance |
+| **Owner** | PlatformTeam |
+| **Application** | OnlineStore |
+
 
 Tags can help with cost allocation, ownership, and automation. Tags do
 not automatically reduce costs or enforce governance by themselves.
@@ -875,90 +804,42 @@ dependencies, and user-related telemetry.
 
 ### Monitoring tools --- quick comparison
 
-  -----------------------------------------------------------------------
-  Tool                                Main purpose
-  ----------------------------------- -----------------------------------
-  Azure Monitor                       Collect and analyze monitoring data
+| Tool | Main Purpose |
+|---|---|
+| **Azure Monitor** | Collects, analyzes, and monitors telemetry data from Azure resources and applications. |
+| **Log Analytics** | Queries and analyzes log data using Kusto Query Language (KQL). |
+| **Azure Monitor Alerts** | Sends notifications or triggers automated actions when defined conditions are met. |
+| **Application Insights** | Monitors application performance, availability, dependencies, and failures. |
+| **Azure Advisor** | Provides personalized recommendations for cost, security, reliability, performance, and operational excellence. |
+| **Azure Service Health** | Provides information about Azure service incidents, planned maintenance, and health advisories. |
 
-  Log Analytics                       Query and analyze log data
-
-  Azure Monitor alerts                Notify or trigger actions when
-                                      conditions are met
-
-  Application Insights                Monitor application performance and
-                                      failures
-
-  Azure Advisor                       Personalized recommendations
-
-  Azure Service Health                Azure service incidents, planned
-                                      maintenance, and advisories
-  -----------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
 # 7. High-value exam comparisons
 
-  -----------------------------------------------------------------------
-  Compare                             Key difference
-  ----------------------------------- -----------------------------------
-  Region vs. Availability Zone        Region is a geographical area; zone
-                                      is an isolated location within a
-                                      region
+  
+# 7. High-Value Exam Comparisons
 
-  Availability Set vs. Availability   Availability Set distributes VMs
-  Zone                                across fault/update domains; Zones
-                                      provide datacenter-level separation
+| Compare | Key Difference |
+|---|---|
+| **Region vs. Availability Zone** | A Region is a geographical area containing Azure datacenters, while an Availability Zone is a physically separate location within a region. |
+| **Availability Set vs. Availability Zone** | Availability Sets distribute VMs across fault and update domains, while Availability Zones provide datacenter-level separation. |
+| **Scalability vs. Elasticity** | Scalability means increasing or decreasing capacity, while elasticity automatically adjusts capacity based on demand. |
+| **High Availability (HA) vs. Disaster Recovery (DR)** | HA minimizes service downtime, while DR focuses on restoring services after a major disruption. |
+| **IaaS vs. PaaS vs. SaaS** | Provider management increases from IaaS to SaaS, while customer infrastructure management decreases. |
+| **VNet Peering vs. VPN Gateway** | VNet Peering connects VNets over Microsoft's backbone, while VPN Gateway connects networks using encrypted VPN tunnels. |
+| **VPN Gateway vs. ExpressRoute** | VPN Gateway uses encrypted tunnels over the internet, while ExpressRoute provides private connectivity through a connectivity provider. |
+| **Public Endpoint vs. Private Endpoint** | A Public Endpoint uses a public network endpoint, while a Private Endpoint uses a private IP address through Azure Private Link. |
+| **Blob Storage vs. Azure Files** | Blob Storage is object storage for unstructured data, while Azure Files provides managed file shares. |
+| **Azure Migrate vs. Azure Data Box** | Azure Migrate helps assess and migrate workloads to Azure, while Data Box transfers large amounts of data using physical devices. |
+| **Microsoft Entra ID vs. Entra Domain Services** | Entra ID provides cloud identity and access management, while Entra Domain Services provides managed domain capabilities such as LDAP, Kerberos, and Group Policy. |
+| **Authentication vs. Authorization** | Authentication verifies identity, while Authorization determines what an identity is allowed to access or do. |
+| **Azure RBAC vs. Azure Policy** | Azure RBAC controls who can perform actions on resources, while Azure Policy enforces and evaluates organizational standards. |
+| **Resource Lock vs. RBAC** | Resource Locks help prevent accidental deletion or modification, while RBAC controls user permissions. |
+| **Azure Advisor vs. Azure Service Health** | Azure Advisor provides personalized recommendations, while Service Health provides information about Azure service incidents and planned maintenance. |
+| **Azure Monitor vs. Application Insights** | Azure Monitor provides broad monitoring capabilities, while Application Insights focuses on application performance, availability, and failures. |
 
-  Scalability vs. Elasticity          Scalability changes capacity;
-                                      elasticity adjusts capacity in
-                                      response to demand
-
-  HA vs. DR                           HA reduces downtime; DR restores
-                                      after a major disruption
-
-  IaaS vs. PaaS vs. SaaS              Increasing provider management and
-                                      decreasing customer infrastructure
-                                      management
-
-  VNet peering vs. VPN Gateway        Peering connects VNets over
-                                      Microsoft's backbone; VPN Gateway
-                                      uses VPN tunnels
-
-  VPN Gateway vs. ExpressRoute        VPN uses encrypted tunnels over the
-                                      internet; ExpressRoute uses private
-                                      provider connectivity
-
-  Public endpoint vs. Private         Public network endpoint vs. private
-  endpoint                            IP through Private Link
-
-  Blob vs. Files                      Object storage vs. managed file
-                                      shares
-
-  Azure Migrate vs. Data Box          Migration assessment/orchestration
-                                      vs. physical data transfer
-
-  Entra ID vs. Entra Domain Services  Cloud identity and access
-                                      management vs. managed domain
-                                      services
-
-  Authentication vs. Authorization    Prove identity vs. determine
-                                      permissions
-
-  Azure RBAC vs. Azure Policy         Control who can do what
-                                      vs. enforce/assess resource
-                                      standards
-
-  Resource lock vs. RBAC              Protect against
-                                      deletion/modification vs. control
-                                      permissions
-
-  Azure Advisor vs. Service Health    Recommendations vs. Azure platform
-                                      health information
-
-  Azure Monitor vs. Application       Broad monitoring platform
-  Insights                            vs. application performance
-                                      monitoring capability
-  -----------------------------------------------------------------------
 
 ------------------------------------------------------------------------
 
