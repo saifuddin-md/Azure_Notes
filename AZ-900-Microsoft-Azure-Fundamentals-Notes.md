@@ -377,8 +377,8 @@ configuration.
 An Availability Set is a logical grouping of Azure VMs that helps protect them against hardware failures and planned maintenance.
 
 Azure distributes VMs across two concepts:
-- **Fault Domains (FD):** Protect against physical hardware failures.
-- **Update Domains (UD):** Protect against planned maintenance and updates.
+- **Fault Domains (FD):** Protect against physical hardware failures. (max 3 = FD0, FD1, FD2)
+- **Update Domains (UD):** Protect against planned maintenance and updates. (max 20 = UD0 UD1..)
 
 **Important:** Availability Sets protect against certain hardware failures and planned maintenance within a datacenter. They do not protect against an entire datacenter outage.
 
