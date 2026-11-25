@@ -217,11 +217,15 @@ requirements, and cost.
 
 ### Availability zones
 
-Availability zones are physically separate locations within an Azure
-region. Each zone has independent power, cooling, and networking.
+An Availability Zone is a physically separate location within an Azure region.
 
-Use zones to improve availability and protect workloads against a
-datacenter-level failure.
+Each Availability Zone has independent:
+- Power supply
+- Cooling system
+- Networking
+- Infrastructure
+
+**Key point:** `Availability Zones` provide protection against datacenter-level failures, whereas `Availability Sets` protect against certain hardware failures within a datacenter.
 
 ### Region pairs
 
@@ -370,17 +374,13 @@ configuration.
 
 ### Availability Sets
 
-Availability Sets logically distribute VMs across fault domains and
-update domains within a datacenter to reduce the impact of hardware
-failures and planned maintenance.
+An Availability Set is a logical grouping of Azure VMs that helps protect them against hardware failures and planned maintenance.
 
--   **Fault domain:** A group of hardware that shares a common power and
-    network switch.
--   **Update domain:** A group of VMs that can be rebooted together
-    during planned maintenance.
+Azure distributes VMs across two concepts:
+- **Fault Domains (FD):** Protect against physical hardware failures.
+- **Update Domains (UD):** Protect against planned maintenance and updates.
 
-Availability Sets are not the same as Availability Zones. Zones provide
-datacenter-level separation.
+**Important:** Availability Sets protect against certain hardware failures and planned maintenance within a datacenter. They do not protect against an entire datacenter outage.
 
 ### Azure Virtual Desktop (AVD)
 
