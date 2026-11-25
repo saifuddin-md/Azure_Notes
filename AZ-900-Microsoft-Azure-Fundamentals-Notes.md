@@ -455,6 +455,10 @@ require a VPN gateway.
 
 An NSG (Network Security Group) is a virtual firewall in Azure that controls inbound and outbound network traffic using security rules.
 
+NSG (Network Security Group) can be associated at both levels:
+
+- 1. Subnet level – Applies to network traffic for resources within that subnet.
+- 2. NIC level – Applies to traffic for the specific VM's Network Interface Card.
 
 **AWS vs Azure Networking Comparison**
 
