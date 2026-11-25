@@ -358,6 +358,7 @@ A VM commonly requires:
 | **Managed Disks** | Azure-managed block storage used by virtual machines. |
 | **VM Image** | Template containing an operating system and optionally preconfigured software. |
 
+**security types**: Azure virtual machines offer three security types that determine the level of `boot and runtime protection`. Boot protection focuses on "whether the system is clean at startup," while runtime protection focuses on "whether data is safe during operation.
 
 ### VM Scale Sets
 
