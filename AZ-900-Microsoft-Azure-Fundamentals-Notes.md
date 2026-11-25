@@ -453,11 +453,10 @@ require a VPN gateway.
 
 ### Network Security Group (NSG)
 
-Filters inbound and outbound network traffic using security rules based
-on items such as source, destination, port, and protocol.
+An NSG (Network Security Group) is a virtual firewall in Azure that controls inbound and outbound network traffic using security rules.
 
 
-## 1. AWS vs Azure Networking Comparison
+**AWS vs Azure Networking Comparison**
 
 | Feature | AWS Security Group | AWS NACL | Azure NSG |
 |---|---|---|---|
@@ -467,58 +466,27 @@ on items such as source, destination, port, and protocol.
 | Rule evaluation | Aggregated rules | Priority-based | Priority-based |
 | Applied to | Network Interface (ENI) | Subnet | Subnet or Network Interface (NIC) |
 
-## 2. Important Difference: Stateful vs Stateless
+**Important Difference: Stateful vs Stateless**
 
-### AWS Security Group and Azure NSG (Stateful)
+**AWS Security Group and Azure NSG (Stateful)**
 
 Both AWS Security Groups and Azure NSGs are stateful.
 
-For example:
+**Example:**
 
 - You allow inbound SSH traffic on port 22.
 - The response traffic is automatically allowed.
 - You don't need to create a separate outbound rule for the SSH response traffic.
 
-### AWS NACL (Stateless)
+**AWS NACL (Stateless)**
 
 AWS Network ACLs are stateless.
 
-For example:
+**Example:**
 
 - You allow inbound SSH traffic on port 22.
 - You must also allow the required outbound response traffic through outbound rules.
 - NACLs do not automatically allow response traffic.
-
-## 3. Example: SSH Connection (Port 22)
-
-**AWS Security Group:**
-- Allow inbound TCP port 22.
-- Response traffic is automatically allowed.
-
-**AWS NACL:**
-- Allow inbound TCP port 22.
-- Allow the required outbound ephemeral ports for response traffic.
-
-**Azure NSG:**
-- Allow inbound TCP port 22.
-- Response traffic is automatically allowed.
-
-## 4. Interview Points to Remember
-
-- AWS Security Group: Stateful, supports Allow rules only.
-- AWS NACL: Stateless, supports both Allow and Deny rules.
-- Azure NSG: Stateful, supports both Allow and Deny rules.
-- AWS Security Groups are associated with network interfaces.
-- AWS NACLs are associated with subnets.
-- Azure NSGs can be associated with subnets or network interfaces.
-
-**Key Takeaway:**
-
-Azure NSG combines some features of AWS Security Groups and NACLs:
-
-- Like AWS Security Groups, Azure NSGs are stateful.
-- Like AWS NACLs, Azure NSGs support both Allow and Deny rules.
-- Azure NSGs use priority-based rule evaluation.
 
 
 ### Azure DNS
