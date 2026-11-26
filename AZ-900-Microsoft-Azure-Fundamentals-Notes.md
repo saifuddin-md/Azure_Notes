@@ -615,6 +615,242 @@ requirements
 **Remember:** AzCopy is a data-transfer tool; Azure Migrate is a
 migration assessment and orchestration service; Data Box is a physical
 data-transfer option.
+--------------------------------------------------------------------------
+
+# Azure Storage Services – AZ-104 Exam Notes
+
+Azure Storage is a cloud storage service used to store different types of data, such as files, documents, images, videos, backups, and virtual machine disks.
+
+For the AZ-104 (Azure Administrator Associate) exam, understand storage services, redundancy options, access tiers, storage accounts, and security configurations.
+
+## 1. Azure Storage Account
+
+An Azure Storage Account is a container that provides a unique namespace for storing data in Azure.
+
+It provides access to different Azure storage services.
+
+### Main Storage Services
+
+| Service | Purpose | AWS Equivalent |
+|---|---|---|
+| Blob Storage | Stores unstructured data | Amazon S3 |
+| Azure Files | Managed file shares | Amazon EFS / FSx |
+| Queue Storage | Stores messages | Amazon SQS |
+| Table Storage | NoSQL key-value data | Amazon DynamoDB (conceptually) |
+| Disk Storage | VM disks | Amazon EBS |
+
+**Important Points:**
+- Each storage account has a globally unique name.
+- Storage account names must be lowercase.
+- Storage account names must be 3–24 characters.
+- Storage accounts are created in a specific Azure region.
+- You can configure redundancy, networking, and security.
+
+## 2. Types of Azure Storage Services
+
+### A. Azure Blob Storage
+
+Blob Storage is used to store unstructured data such as images, videos, documents, log files, and backups.
+
+It is commonly used for large amounts of unstructured data.
+
+**Blob Types:**
+
+| Blob Type | Purpose |
+|---|---|
+| Block Blob | Stores text and binary data; commonly used for files and images |
+| Append Blob | Optimized for append operations; useful for log files |
+| Page Blob | Stores random-access data; used for Azure VM disks |
+
+**Important Exam Points:**
+- Block Blob → General file storage.
+- Append Blob → Logging data.
+- Page Blob → Random read/write operations, commonly used for VM disks.
+
+### B. Azure Files
+
+Azure Files provides fully managed file shares in the cloud.
+
+**Supported Protocols:**
+- SMB
+- NFS (for supported configurations)
+
+**Use Cases:**
+- Shared files between multiple virtual machines.
+- Migrating on-premises file servers to Azure.
+- Sharing files between applications.
+
+**Important Exam Points:**
+- Supports SMB and NFS.
+- Can be mounted by multiple VMs.
+- Supports hybrid access using Azure File Sync.
+- Azure File Sync synchronizes on-premises Windows Server file shares with Azure Files.
+
+**AWS Equivalent:** Amazon EFS (conceptually; Azure Files also supports SMB workloads).
+
+### C. Azure Queue Storage
+
+Queue Storage stores messages that applications can process asynchronously.
+
+**Example:**
+1. Application sends a message to a queue.
+2. Queue stores the message.
+3. Another application reads the message.
+4. The application processes the task.
+
+**Use Cases:**
+- Background processing.
+- Decoupling application components.
+- Asynchronous communication.
+
+**AWS Equivalent:** Amazon SQS.
+
+### D. Azure Table Storage
+
+Azure Table Storage is a NoSQL key-value storage service used to store structured, non-relational data.
+
+**Important Points:**
+- Does not require a fixed relational database schema.
+- Stores data as entities.
+- Uses PartitionKey and RowKey to identify entities.
+- Suitable for large amounts of semi-structured data.
+
+**AWS Equivalent:** Amazon DynamoDB (conceptually).
+
+### E. Azure Managed Disks
+
+Managed Disks provide block-level storage for Azure Virtual Machines.
+
+**Important Points:**
+- Used as OS disks and data disks.
+- Azure manages the underlying storage infrastructure.
+- Supports different performance tiers.
+- Can create snapshots and disk backups.
+
+**AWS Equivalent:** Amazon EBS.
+
+## 3. Azure Blob Storage Access Tiers
+
+Access tiers help optimize storage costs based on how frequently data is accessed.
+
+| Tier | Usage | Storage Cost | Access Cost |
+|---|---|---|---|
+| Hot | Frequently accessed data | Higher | Lower |
+| Cool | Infrequently accessed data | Lower | Higher |
+| Cold | Rarely accessed data | Even lower | Higher |
+| Archive | Rarely accessed, long-term data | Lowest | Highest |
+
+**Important Exam Points:**
+- Hot → Frequently accessed data.
+- Cool → Infrequently accessed data; minimum 30-day retention.
+- Cold → Rarely accessed data; minimum 90-day retention.
+- Archive → Long-term storage; minimum 180-day retention.
+- Archive data is offline and must be rehydrated before reading.
+- Rehydration can take hours depending on priority and data size.
+
+**Examples:**
+- Website images accessed frequently → Hot.
+- Monthly reports → Cool.
+- Old business records → Cold.
+- Long-term compliance backups → Archive.
+
+## 4. Storage Redundancy
+
+| Type | Description |
+|---|---|
+| LRS | 3 copies in one data center |
+| ZRS | 3 copies across availability zones |
+| GRS | LRS + secondary region |
+| GZRS | ZRS + secondary region |
+
+**Additional Options:**
+- RA-GRS → Read access to secondary region.
+- RA-GZRS → Read access to secondary region.
+
+**Remember:**
+- LRS = Local
+- ZRS = Zones
+- GRS = Regions
+- GZRS = Zones + Regions
+
+## 5. Performance Tiers
+
+| Type | Description |
+|---|---|
+| Standard | General-purpose storage |
+| Premium | SSD-based, high performance |
+
+## 6. Storage Account Types
+
+| Type | Purpose |
+|---|---|
+| Standard GPv2 | Blob, Files, Queue, Table |
+| Premium Block Blobs | High-performance blobs |
+| Premium File Shares | High-performance files |
+| Premium Page Blobs | High-performance page blobs |
+
+## 7. Storage Security
+
+**Access Methods:**
+- Access Keys → Two keys providing broad storage account access.
+- SAS → Temporary, restricted access to storage resources.
+- Entra ID / RBAC → Identity-based access.
+
+### SAS Types
+
+- User Delegation SAS → Entra ID.
+- Service SAS → Specific storage resource.
+- Account SAS → Multiple supported storage services.
+
+### RBAC Roles
+
+- Reader → Read blob data.
+- Contributor → Read, write, delete.
+- Owner → Full blob data control.
+
+**Additional Security Features:**
+- Encryption → Enabled by default; supports customer-managed keys.
+- Network Security → Firewall, VNet rules, Private Endpoint.
+
+## 8. Lifecycle Management
+
+Automatically moves or deletes blobs based on rules.
+
+**Example:** Hot → Cool → Archive → Delete.
+
+**Purpose:** Reduce storage costs.
+
+## 9. Azure File Sync
+
+Synchronizes on-premises Windows Server files with Azure Files.
+
+**Important Components:**
+- Cloud Endpoint → Azure file share.
+- Server Endpoint → On-premises folder.
+- Sync Group → Synchronization relationship.
+- Cloud Tiering → Keeps frequently used files locally.
+
+## 10. Quick Service Comparison
+
+| Requirement | Service |
+|---|---|
+| Images, videos, documents | Blob Storage |
+| Shared files | Azure Files |
+| Messages | Queue Storage |
+| NoSQL data | Table Storage |
+| VM disks | Managed Disks |
+| File synchronization | Azure File Sync |
+| Temporary access | SAS |
+| Identity-based access | RBAC |
+| Automatic blob movement | Lifecycle Management |
+| Zone protection | ZRS |
+| Regional protection | GRS |
+| Zone + regional protection | GZRS |
+| Secondary region read access | RA-GRS / RA-GZRS |
+
+
+
+
 
 ------------------------------------------------------------------------
 
