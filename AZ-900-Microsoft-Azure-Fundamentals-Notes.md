@@ -434,14 +434,21 @@ storage events.
 
 ### Virtual Network (VNet)
 
-An Azure Virtual Network is a logically isolated network in Azure. It
-enables Azure resources to communicate with each other, the internet,
-and on-premises networks when connectivity is configured.
+An Azure Virtual Network is a logically isolated network in Azure. It enables Azure resources to communicate with each other, the internet, and on-premises networks when connectivity is configured, (Maximum 1000 Vnet we can create in an account).
+
+In all VNet, Starting 4 IPs are reserved and last one is also reserved.
+
+- 10.0.0.0 Network ID
+- 10.0.0.1 default gateway
+- 10.0.0.2 dns
+- 10.0.0.3 dns
+- 10.0.0.255 broadcast 
+
 
 ### Subnet
 
 A subnet divides a VNet into smaller IP address ranges. You can place
-resources in different subnets and apply network controls.
+resources in different subnets and apply network controls,  (Maximum 3000 Subnets we can create in a VNet).
 
 ### VNet peering
 
@@ -495,9 +502,9 @@ AWS Network ACLs are stateless.
 
 ### Azure DNS
 
-Provides DNS hosting and name resolution services: - **Azure DNS:** Host
-DNS domains and manage DNS records. - **Azure Private DNS:** Provide
-name resolution within virtual networks.
+Provides DNS hosting and name resolution services: 
+- **Azure DNS:** Host DNS domains and manage DNS records.
+- - **Azure Private DNS:** Provide name resolution within virtual networks.
 
 ### VPN Gateway
 
