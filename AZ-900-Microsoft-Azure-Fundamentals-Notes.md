@@ -540,90 +540,11 @@ network access; configure that separately when required.
 
 # 3. Azure storage services
 
-## 3.1 Azure Storage overview
-
-Azure Storage is Microsoft's cloud storage platform. A storage account
-provides a namespace for supported storage services.
-
-### Main storage services
-
-| Service | What It Stores / Use Case |
-|---|---|
-| **Azure Blob Storage** | Stores unstructured data such as images, videos, backups, and log files. |
-| **Azure Files** | Provides managed file shares accessible using protocols such as SMB. |
-| **Azure Queue Storage** | Stores messages for asynchronous communication between application components. |
-| **Azure Table Storage** | Provides a NoSQL key/attribute store for structured, non-relational data. |
-| **Azure Managed Disks** | Provides block storage for Azure Virtual Machines. |
-
-
-### Blob access tiers
-
--   **Hot:** Data accessed frequently.
--   **Cool:** Data accessed less frequently; designed for storage with a
-    lower storage cost and higher access cost than Hot.
--   **Cold:** Data accessed rarely; intended for longer-term infrequent
-    access.
--   **Archive:** Offline tier for rarely accessed data; rehydration is
-    required before reading.
-
-The exact minimum storage duration, retrieval time, and pricing depend
-on the tier and account configuration.
-
-## 3.2 Storage redundancy
-
-Redundancy protects data against hardware, datacenter, or regional
-failures.
-
-| Option | Meaning |
-|---|---|
-| **LRS (Locally Redundant Storage)** | Copies data within a single datacenter in the primary region. |
-| **ZRS (Zone-Redundant Storage)** | Synchronously replicates data across multiple availability zones in the primary region. |
-| **GRS (Geo-Redundant Storage)** | Replicates data to a secondary region for regional disaster recovery. |
-| **GZRS (Geo-Zone-Redundant Storage)** | Replicates data across availability zones in the primary region and to a secondary region. |
-| **RA-GRS (Read-Access Geo-Redundant Storage)** | Provides read access to the secondary region in addition to GRS replication. |
-| **RA-GZRS (Read-Access Geo-Zone-Redundant Storage)** | Provides read access to the secondary region in addition to GZRS replication. |
-
-
-**Exam tip:** LRS protects against some local hardware failures, but not
-a complete regional outage. Geo-redundancy is designed to protect
-against a regional outage.
-
-## 3.3 Storage account considerations
-
-A storage account provides a unique namespace and settings for storage
-services. Consider: - Performance and account type - Redundancy option -
-Access tier where applicable - Region - Network access and firewall
-settings - Identity and authorization - Encryption and data protection
-requirements
-
-## 3.4 Moving and managing data
-
--   **AzCopy:** Command-line utility for copying data to, from, or
-    between Azure Storage accounts.
--   **Azure Storage Explorer:** Graphical tool for working with Azure
-    Storage data.
--   **Azure File Sync:** Synchronizes Windows Server file shares with
-    Azure Files and supports local caching.
-
-## 3.5 Migration services
-
--   **Azure Migrate:** Helps assess, plan, and migrate servers,
-    databases, and applications to Azure.
--   **Azure Data Box:** Physical devices used to transfer large amounts
-    of data to or from Azure when network transfer is impractical.
-
-**Remember:** AzCopy is a data-transfer tool; Azure Migrate is a
-migration assessment and orchestration service; Data Box is a physical
-data-transfer option.
---------------------------------------------------------------------------
-
-# Azure Storage Services – AZ-104 Exam Notes
-
 Azure Storage is a cloud storage service used to store different types of data, such as files, documents, images, videos, backups, and virtual machine disks.
 
 For the AZ-104 (Azure Administrator Associate) exam, understand storage services, redundancy options, access tiers, storage accounts, and security configurations.
 
-## 1. Azure Storage Account
+## 3.1 Azure Storage Account
 
 An Azure Storage Account is a container that provides a unique namespace for storing data in Azure.
 
@@ -646,7 +567,7 @@ It provides access to different Azure storage services.
 - Storage accounts are created in a specific Azure region.
 - You can configure redundancy, networking, and security.
 
-## 2. Types of Azure Storage Services
+## 3.2 Types of Azure Storage Services
 
 ### A. Azure Blob Storage
 
@@ -729,7 +650,7 @@ Managed Disks provide block-level storage for Azure Virtual Machines.
 
 **AWS Equivalent:** Amazon EBS.
 
-## 3. Azure Blob Storage Access Tiers
+## 3.3 Azure Blob Storage Access Tiers
 
 Access tiers help optimize storage costs based on how frequently data is accessed.
 
@@ -754,7 +675,7 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 - Old business records → Cold.
 - Long-term compliance backups → Archive.
 
-## 4. Storage Redundancy
+## 3.4 Storage Redundancy
 
 | Type | Description |
 |---|---|
@@ -773,14 +694,14 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 - GRS = Regions
 - GZRS = Zones + Regions
 
-## 5. Performance Tiers
+## 3.5 Performance Tiers
 
 | Type | Description |
 |---|---|
 | Standard | General-purpose storage |
 | Premium | SSD-based, high performance |
 
-## 6. Storage Account Types
+## 3.6 Storage Account Types
 
 | Type | Purpose |
 |---|---|
@@ -789,7 +710,7 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 | Premium File Shares | High-performance files |
 | Premium Page Blobs | High-performance page blobs |
 
-## 7. Storage Security
+## 3.7 Storage Security
 
 **Access Methods:**
 - Access Keys → Two keys providing broad storage account access.
@@ -812,7 +733,7 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 - Encryption → Enabled by default; supports customer-managed keys.
 - Network Security → Firewall, VNet rules, Private Endpoint.
 
-## 8. Lifecycle Management
+## 3.8 Lifecycle Management
 
 Automatically moves or deletes blobs based on rules.
 
@@ -820,7 +741,7 @@ Automatically moves or deletes blobs based on rules.
 
 **Purpose:** Reduce storage costs.
 
-## 9. Azure File Sync
+## 3.9 Azure File Sync
 
 Synchronizes on-premises Windows Server files with Azure Files.
 
@@ -830,7 +751,7 @@ Synchronizes on-premises Windows Server files with Azure Files.
 - Sync Group → Synchronization relationship.
 - Cloud Tiering → Keeps frequently used files locally.
 
-## 10. Quick Service Comparison
+## 3.10 Quick Service Comparison
 
 | Requirement | Service |
 |---|---|
