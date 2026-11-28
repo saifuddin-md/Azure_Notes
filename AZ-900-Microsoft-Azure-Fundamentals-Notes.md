@@ -546,19 +546,17 @@ For the AZ-104 (Azure Administrator Associate) exam, understand storage services
 
 ## 3.1 Azure Storage Account
 
-An Azure Storage Account is a container that provides a unique namespace for storing data in Azure.
-
-It provides access to different Azure storage services.
+An Azure Storage Account is a container that provides a unique namespace for storing data in Azure. It provides access to different Azure storage services.
 
 ### Main Storage Services
 
 | Service | Purpose | AWS Equivalent |
 |---|---|---|
-| Blob Storage | Stores unstructured data | Amazon S3 |
-| Azure Files | Managed file shares | Amazon EFS / FSx |
-| Queue Storage | Stores messages | Amazon SQS |
-| Table Storage | NoSQL key-value data | Amazon DynamoDB (conceptually) |
-| Disk Storage | VM disks | Amazon EBS |
+| Blob | Stores unstructured data | Amazon S3 |
+| Files | Managed file shares | Amazon EFS / FSx |
+| Queue | Stores messages | Amazon SQS |
+| Table | NoSQL key-value data | Amazon DynamoDB (conceptually) |
+| Disk | VM disks | Amazon EBS |
 
 **Important Points:**
 - Each storage account has a globally unique name.
@@ -577,22 +575,245 @@ It provides access to different Azure storage services.
 
 ### A. Azure Blob Storage
 
-Blob Storage is used to store unstructured data such as images, videos, documents, log files, and backups.
+Blob Storage is used to store unstructured data such as images, videos, documents, log files, and backups. It is commonly used for large amounts of unstructured data.
 
-It is commonly used for large amounts of unstructured data.
+Azure Blob Storage is Microsoft's object storage service used to store large amounts of unstructured data, such as:
 
-**Blob Types:**
+- Images
+- Videos
+- Documents
+- Backup files
+- Log files
+- Application data
 
-| Blob Type | Purpose |
-|---|---|
-| Block Blob | Stores text and binary data; commonly used for files and images |
-| Append Blob | Optimized for append operations; useful for log files |
-| Page Blob | Stores random-access data; used for Azure VM disks |
+**AWS Equivalent:** Amazon S3
 
-**Important Exam Points:**
+### Key Features
+- Highly scalable and durable.
+- Stores unstructured data.
+- Accessible through HTTP/HTTPS.
+- Supports multiple access tiers.
+- Helps optimize storage costs.
+
+---
+
+## 2. Azure Blob Storage Hierarchy
+
+Blob Storage has three main levels:
+
+1. **Storage Account:** Top-level resource that provides a unique namespace for storage data.
+2. **Container:** Logical grouping of blobs, similar to a folder.
+3. **Blob:** Actual object or file stored inside a container.
+
+### Example
+
+```text
+Storage Account: mystorageaccount
+    |
+    |--- Container: images
+    |       |--- photo1.jpg
+    |       |--- photo2.png
+    |
+    |--- Container: backups
+            |--- backup.zip
+            |--- database.bak
+```
+
+---
+
+## 3. Types of Azure Blobs
+
+Azure Blob Storage supports three types of blobs.
+
+| Blob Type | Purpose | Example |
+|---|---|---|
+| Block Blob | Stores text and binary data | Images, videos, PDFs |
+| Append Blob | Optimized for append operations | Application logs |
+| Page Blob | Supports random read/write operations | Virtual machine disks (VHDs) |
+
+**Remember for AZ-104:**
+
 - Block Blob → General file storage.
-- Append Blob → Logging data.
-- Page Blob → Random read/write operations, commonly used for VM disks.
+- Append Blob → Log files.
+- Page Blob → Virtual hard disks.
+
+---
+
+## 4. Blob Access Tiers
+
+Access tiers help optimize storage costs based on how frequently data is accessed.
+
+| Tier | Usage | Storage Cost | Access |
+|---|---|---|---|
+| Hot | Frequently accessed data | High | Immediate |
+| Cool | Infrequently accessed data | Lower | Immediate |
+| Cold | Rarely accessed data | Lower than Cool | Immediate |
+| Archive | Long-term backup | Lowest | Requires rehydration |
+
+### Minimum Retention Periods
+
+- Hot: No minimum.
+- Cool: 30 days.
+- Cold: 90 days.
+- Archive: 180 days.
+
+### Important Exam Points
+
+- Hot, Cool and Cold are online tiers.
+- Archive is an offline tier.
+- Archive data must be rehydrated before reading or downloading.
+- Archive retrieval can take up to 15 hours.
+- Moving or deleting data before the minimum retention period may cause early deletion charges.
+
+### Example
+
+- Current application files → Hot.
+- Monthly backups → Cool.
+- Old backups → Cold.
+- Five-year-old backups → Archive.
+
+---
+
+## 5. Lifecycle Management
+
+Lifecycle Management automatically moves or deletes blobs based on predefined rules.
+
+### Example
+
+```text
+If blob is not modified for 30 days
+        |
+        v
+     Move to Cool
+
+If blob is not modified for 90 days
+        |
+        v
+    Move to Archive
+
+If blob is older than 365 days
+        |
+        v
+       Delete
+```
+
+### Benefits
+
+- Reduces storage costs.
+- Automatically moves old data to cheaper tiers.
+- Deletes unnecessary data.
+- Avoids manual management.
+
+**Example:** Move application logs to Cool after 30 days and delete them after 365 days.
+
+---
+
+## 6. Blob Versioning
+
+Blob Versioning automatically maintains previous versions of a blob when it is modified.
+
+### Example
+
+```text
+file.txt
+   |
+   |--- Version 1
+   |--- Version 2
+   |--- Version 3 (Current)
+```
+
+### Benefits
+
+- Maintains previous versions.
+- Helps recover from accidental modifications.
+- Allows restoration of earlier versions.
+
+**Note:** Versioning can increase storage costs because previous versions consume storage.
+
+---
+
+## 7. Soft Delete
+
+Soft Delete protects blobs from accidental deletion.
+
+### Example
+
+1. You upload `backup.zip`.
+2. Someone accidentally deletes it.
+3. Azure retains the deleted blob for the configured retention period.
+4. You can restore it during that period.
+
+**Remember:** Soft Delete = Recover accidentally deleted data.
+
+---
+
+## 8. Blob Snapshots
+
+A snapshot is a read-only point-in-time copy of a blob.
+
+### Example
+
+```text
+Original Blob
+    |
+    |--- Snapshot 1
+    |--- Snapshot 2
+    |--- Snapshot 3
+```
+
+### Difference Between Versioning and Snapshots
+
+| Versioning | Snapshot |
+|---|---|
+| Automatically creates versions when supported data is modified | Created manually or programmatically |
+| Maintains previous versions | Maintains point-in-time copies |
+| Can restore previous versions | Can restore from snapshots |
+
+---
+
+## 9. Accessing Azure Blob Storage
+
+You can access and manage blobs using:
+
+- Azure Portal
+- Azure Storage Explorer
+- Azure CLI
+- PowerShell
+- REST API
+- SDKs (Python, .NET, Java, etc.)
+
+---
+
+## 10. Security in Blob Storage
+
+| Feature | Purpose |
+|---|---|
+| Microsoft Entra ID | Identity-based authentication |
+| Azure RBAC | Controls who can access storage resources |
+| SAS (Shared Access Signature) | Provides limited, time-bound access |
+| Storage Account Key | Provides access using account keys |
+| Encryption at Rest | Protects stored data |
+| Private Endpoint | Allows private network access |
+
+### Important Points
+
+- Prefer Microsoft Entra ID and RBAC for identity-based access.
+- SAS provides restricted access without sharing the storage account key.
+- Private Endpoint allows private connectivity to storage services.
+- Azure Storage encrypts data at rest.
+
+---
+
+## 11. Blob Storage vs Azure Files
+
+| Feature | Blob Storage | Azure Files |
+|---|---|---|
+| Storage Type | Object Storage | File Storage |
+| Data Organization | Containers and Blobs | Shares and Files |
+| Access | HTTP/HTTPS APIs | SMB / NFS |
+| Use Case | Images, videos, backups | Shared folders, file servers |
+| AWS Equivalent | Amazon S3 | Amazon EFS / FSx (depending on use case) |
+
 
 ### B. Azure Files
 
