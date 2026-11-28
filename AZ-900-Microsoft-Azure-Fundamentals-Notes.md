@@ -597,7 +597,7 @@ Azure Blob Storage is Microsoft's object storage service used to store large amo
 
 ---
 
-## 2. Azure Blob Storage Hierarchy
+### Azure Blob Storage Hierarchy
 
 Blob Storage has three main levels:
 
@@ -621,7 +621,7 @@ Storage Account: mystorageaccount
 
 ---
 
-## 3. Types of Azure Blobs
+### Types of Azure Blobs
 
 Azure Blob Storage supports three types of blobs.
 
@@ -639,7 +639,7 @@ Azure Blob Storage supports three types of blobs.
 
 ---
 
-## 4. Blob Access Tiers
+### Blob Access Tiers
 
 Access tiers help optimize storage costs based on how frequently data is accessed.
 
@@ -674,7 +674,7 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 
 ---
 
-## 5. Lifecycle Management
+### Lifecycle Management
 
 Lifecycle Management automatically moves or deletes blobs based on predefined rules.
 
@@ -708,7 +708,7 @@ If blob is older than 365 days
 
 ---
 
-## 6. Blob Versioning
+### Blob Versioning
 
 Blob Versioning automatically maintains previous versions of a blob when it is modified.
 
@@ -732,7 +732,7 @@ file.txt
 
 ---
 
-## 7. Soft Delete
+### Soft Delete
 
 Soft Delete protects blobs from accidental deletion.
 
@@ -747,7 +747,7 @@ Soft Delete protects blobs from accidental deletion.
 
 ---
 
-## 8. Blob Snapshots
+### Blob Snapshots
 
 A snapshot is a read-only point-in-time copy of a blob.
 
@@ -771,7 +771,7 @@ Original Blob
 
 ---
 
-## 9. Accessing Azure Blob Storage
+### Accessing Azure Blob Storage
 
 You can access and manage blobs using:
 
@@ -784,7 +784,7 @@ You can access and manage blobs using:
 
 ---
 
-## 10. Security in Blob Storage
+### Security in Blob Storage
 
 | Feature | Purpose |
 |---|---|
@@ -804,7 +804,7 @@ You can access and manage blobs using:
 
 ---
 
-## 11. Blob Storage vs Azure Files
+### Blob Storage vs Azure Files
 
 | Feature | Blob Storage | Azure Files |
 |---|---|---|
