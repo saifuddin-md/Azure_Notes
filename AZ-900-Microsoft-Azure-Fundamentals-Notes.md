@@ -569,6 +569,12 @@ It provides access to different Azure storage services.
 
 ## 3.2 Types of Azure Storage Services
 
+- Blob
+- File
+- Queue  (not in 104)
+- Table  (not in 104)
+- Disk
+
 ### A. Azure Blob Storage
 
 Blob Storage is used to store unstructured data such as images, videos, documents, log files, and backups.
