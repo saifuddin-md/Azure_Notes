@@ -597,7 +597,7 @@ Azure Blob Storage is Microsoft's object storage service used to store large amo
 
 ---
 
-### Azure Blob Storage Hierarchy
+### * Azure Blob Storage Hierarchy
 
 Blob Storage has three main levels:
 
@@ -621,7 +621,7 @@ Storage Account: mystorageaccount
 
 ---
 
-### Types of Azure Blobs
+### * Types of Azure Blobs
 
 Azure Blob Storage supports three types of blobs.
 
@@ -639,7 +639,7 @@ Azure Blob Storage supports three types of blobs.
 
 ---
 
-### Blob Access Tiers
+### * Blob Access Tiers
 
 Access tiers help optimize storage costs based on how frequently data is accessed.
 
@@ -650,7 +650,7 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 | Cold | Rarely accessed data | Lower than Cool | Immediate |
 | Archive | Long-term backup | Lowest | Requires rehydration |
 
-### Minimum Retention Periods
+### * Minimum Retention Periods
 
 - Hot: No minimum.
 - Cool: 30 days.
@@ -674,7 +674,7 @@ Access tiers help optimize storage costs based on how frequently data is accesse
 
 ---
 
-### Lifecycle Management
+### * Lifecycle Management
 
 Lifecycle Management automatically moves or deletes blobs based on predefined rules.
 
@@ -697,7 +697,7 @@ If blob is older than 365 days
        Delete
 ```
 
-### Benefits
+### * Benefits
 
 - Reduces storage costs.
 - Automatically moves old data to cheaper tiers.
@@ -708,7 +708,7 @@ If blob is older than 365 days
 
 ---
 
-### Blob Versioning
+### * Blob Versioning
 
 Blob Versioning automatically maintains previous versions of a blob when it is modified.
 
@@ -732,7 +732,7 @@ file.txt
 
 ---
 
-### Soft Delete
+### * Soft Delete
 
 Soft Delete protects blobs from accidental deletion.
 
@@ -747,7 +747,7 @@ Soft Delete protects blobs from accidental deletion.
 
 ---
 
-### Blob Snapshots
+### * Blob Snapshots
 
 A snapshot is a read-only point-in-time copy of a blob.
 
@@ -761,7 +761,7 @@ Original Blob
     |--- Snapshot 3
 ```
 
-### Difference Between Versioning and Snapshots
+### * Difference Between Versioning and Snapshots
 
 | Versioning | Snapshot |
 |---|---|
@@ -771,7 +771,7 @@ Original Blob
 
 ---
 
-### Accessing Azure Blob Storage
+### * Accessing Azure Blob Storage
 
 You can access and manage blobs using:
 
@@ -784,7 +784,7 @@ You can access and manage blobs using:
 
 ---
 
-### Security in Blob Storage
+### * Security in Blob Storage
 
 | Feature | Purpose |
 |---|---|
@@ -804,7 +804,7 @@ You can access and manage blobs using:
 
 ---
 
-### Blob Storage vs Azure Files
+### * Blob Storage vs Azure Files
 
 | Feature | Blob Storage | Azure Files |
 |---|---|---|
